@@ -12,8 +12,9 @@ function App() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('process.env:', process.env);
     try {
-      const res = await fetch(process.env.REACT_APP_ZAPIER_WEBHOOK_URL, {
+      const res = await fetch('/api/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
